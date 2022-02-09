@@ -1,0 +1,26 @@
+
+
+
+{
+    "name": ,
+    "shortName": "test",
+    "api":" http:development.dhis.akdndhrc.org/api/dataSets",
+    "code": "sec1/xx",
+    "aggregationType": "SUM",
+    "domainType": "AGGREGATE",
+    "valueType": "NUMBER",
+    "zeroIsSignificant": true,
+    "categoryCombo": {
+        "id": "bjDvmb4bfuf"
+    },
+    "legendSets": [],
+    "aggregationLevels": [
+        2,
+        4,
+        7,
+        1,
+        3,
+        5,
+        6
+    ]
+}
