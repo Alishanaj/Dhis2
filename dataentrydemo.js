@@ -53,7 +53,7 @@ console.log("heelo");
                         {
                             "dataElement":  data[j]["data_element_id"],
                             "categoryOptionCombo": "HllvX50cXC0",
-                            "value": "2",
+                            "value": "15",
                             "comment": "comment1"
                         }
                         
@@ -63,10 +63,13 @@ console.log("heelo");
            
             
           
-            console.log(`Imported ${result[i]["basev1"]} ,
-             ${data[j]["data_set_id"]}, ${data[j]["data_element_id"]} ` );
+            // console.log(`Imported ${result[i]["basev1"]} ,
+            //  ${data[j]["data_set_id"]}, ${data[j]["data_element_id"]} ` );
             
-        } catch (e) {
+       console.log("done");
+     }    
+        
+        catch (e) {
             if (e instanceof got.HTTPError) {
                 if (e.response.statusCode == "409") {
                     console.log(`Error with ${result[i]["name"]}`);
