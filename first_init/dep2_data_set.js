@@ -1,7 +1,7 @@
+require('dotenv').config({path:'../.env'})
 const papaparse = require("papaparse");
 const got = require("got");
 const fs = require("fs");
-require('dotenv').config()
 
 const client = got.extend({
  prefixUrl: process.env["PREFIX_URL"],

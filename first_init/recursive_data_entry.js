@@ -1,6 +1,7 @@
 let mysql = require("mysql2/promise");
 const papaparse = require("papaparse");
 const got = require("got");
+require('dotenv').config({path:'../.env'})
 
 const client = got.extend({
  prefixUrl: process.env["PREFIX_URL"],
@@ -15,6 +16,7 @@ let con = mysql.createPool({
  user: process.env["DB_USER"],
  password: process.env["DB_PASSWORD"],
  database: process.env["DB_DATABASE"],
+ port: process.env["DB_PORT"],
  multipleStatements: true,
 });
 
