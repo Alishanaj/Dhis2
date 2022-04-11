@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+  database:
+    image: mariadb:latest
+    restart: unless-stopped
+    network_mode: dhis2-netspace
+    environment:
+      - MARIADB_USER=maria_user
+      - MARIADB_PASSWORD=123456
+      - MARIADB_ROOT_PASSWORD=123456
+    ports:
+      - 33444:3306
+    volumes:
+      - dhis2_volume:/home
+    
+volumes:
+  dhis2_volume:
+
+networks:
+  dhis2-netspace:
+    driver: bridge
