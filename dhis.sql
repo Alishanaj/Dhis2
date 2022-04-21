@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2022 at 12:42 PM
+-- Generation Time: Apr 21, 2022 at 01:19 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -694,7 +694,11 @@ INSERT INTO `data_elements` (`data_set`, `data_set_id`, `sub_heading`, `data_ele
 ('SECTION 11-B', '', '', 'PCV-10 Vaccine', 'sec11b_8', 'ro4jbCakove'),
 ('SECTION 11-B', '', '', 'Rota Virus Vaccine', 'sec11b_9', 'Jy3YCtXdyIK'),
 ('SECTION 11-B', '', '', 'Anti-Rabbies Vaccine', 'sec11b_10', 'K3KMeixEyYE'),
-('SECTION 11-B', '', '', 'Vaccine Syringes', 'sec11b_11', 'mdMMudtnbF6');
+('SECTION 11-B', '', '', 'Vaccine Syringes', 'sec11b_11', 'mdMMudtnbF6'),
+('SECTION 1', '', '', 'Facility Name', 'sec1_2', ''),
+('SECTION 1', '', '', 'Facility Name', 'sec1_2', ''),
+('SECTION 1', '', '', 'Facility Name', 'sec1_2', ''),
+('SECTION 1', '', '', 'Facility Name', 'sec1_2', '');
 
 -- --------------------------------------------------------
 
@@ -2494,6 +2498,26 @@ INSERT INTO `s01_terms` (`uuid`, `group`, `code`, `name`, `status`, `country_id`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tracking`
+--
+
+CREATE TABLE `tracking` (
+  `id` int(11) NOT NULL,
+  `basev6` varchar(128) NOT NULL,
+  `basev2` bigint(20) NOT NULL,
+  `basev3` bigint(20) NOT NULL,
+  `basev11` varchar(64) NOT NULL,
+  `basev1` varchar(128) NOT NULL,
+  `duplicate_value` varchar(255) DEFAULT NULL,
+  `entered_data` varchar(255) DEFAULT NULL,
+  `conflict` varchar(255) DEFAULT NULL,
+  `added_on` varchar(255) DEFAULT NULL,
+  `logs` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `u01_users`
 --
 
@@ -2880,6 +2904,12 @@ ALTER TABLE `s01_terms`
   ADD KEY `status` (`status`),
   ADD KEY `code` (`code`),
   ADD KEY `s01_terms_country_id_IDX` (`country_id`) USING BTREE;
+
+--
+-- Indexes for table `tracking`
+--
+ALTER TABLE `tracking`
+  ADD PRIMARY KEY (`basev6`,`basev2`,`basev3`,`basev11`,`basev1`);
 
 --
 -- Indexes for table `u01_users`
