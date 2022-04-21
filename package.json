@@ -7,8 +7,10 @@
     "csv-parser": "^3.0.0",
     "dotenv": "^16.0.0",
     "got": "^11.0.0",
+    "moment": "^2.29.3",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
+    "mysql2-promise": "^0.1.4",
     "node-modules": "^1.0.1",
     "papaparse": "^5.3.1"
   },
