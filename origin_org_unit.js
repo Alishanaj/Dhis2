@@ -1,14 +1,14 @@
 'use strict';
 
-require('dotenv').config({path:'../.env'})
+require('dotenv').config();
 let mysql = require("mysql2/promise");
 const papaparse = require("papaparse");
 const got = require("got");
 
 const client = got.extend({
  prefixUrl: process.env["PREFIX_URL"],
- username: process.env["USERNAME"],
- password: process.env["PASSWORD"],
+ username: process.env["API_USERNAME"],
+ password: process.env["API_PASSWORD"],
  responseType: "json",
  resolveBodyOnly: true,
 });

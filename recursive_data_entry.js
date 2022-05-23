@@ -2,14 +2,12 @@ let mysql = require("mysql2/promise");
 const papaparse = require("papaparse");
 let moment = require("moment");
 const got = require("got");
-require('dotenv').config({path:'../.env'})
-
 require('dotenv').config();
 
 const client = got.extend({
- prefixUrl: "http://development.dhis.akdndhrc.org/api/",
- username: "admin",
- password: "district",
+ prefixUrl: process.env["PREFIX_URL"],
+ username: process.env["API_USERNAME"],
+ password: process.env["API_PASSWORD"],
  responseType: "json",
  resolveBodyOnly: true,
 });

@@ -1,12 +1,12 @@
-require('dotenv').config({path:'../.env'})
+require('dotenv').config();
 const papaparse = require("papaparse");
 const got = require("got");
 const fs = require("fs");
 
 const client = got.extend({
  prefixUrl:process.env["PREFIX_URL"],
- username: process.env["USERNAME"],
- password: process.env["PASSWORD"],
+ username: process.env["API_USERNAME"],
+ password: process.env["API_PASSWORD"],
  responseType: "json",
  resolveBodyOnly: true,
 });
