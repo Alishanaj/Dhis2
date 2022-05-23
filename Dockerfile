@@ -3,4 +3,4 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm ci
 COPY . .
-ENTRYPOINT [ "node", "./first_init/recursive_data_entry.js" ]
+ENTRYPOINT [ "node", "recursive_data_entry.js" ]
