@@ -1,6 +1,7 @@
 FROM node:lts-alpine
-WORKDIR /usr/src/app
-COPY package*.json ./
+WORKDIR /app
+
+COPY ./ /app/
+
 RUN npm ci
-COPY . .
 ENTRYPOINT [ "node", "recursive_data_entry.js" ]

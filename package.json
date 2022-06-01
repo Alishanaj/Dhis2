@@ -2,7 +2,7 @@
   "name": "parse-csv",
   "version": "1.0.0",
   "description": "This is the Dhis Project",
-  "main": "papaparse.js",
+  "main": "recursive_data_entry.js",
   "dependencies": {
     "csv-parser": "^3.0.0",
     "dotenv": "^16.0.0",

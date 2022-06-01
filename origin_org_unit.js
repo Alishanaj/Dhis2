@@ -1,4 +1,4 @@
-'use strict';
+
 
 require('dotenv').config();
 let mysql = require("mysql2/promise");
@@ -14,11 +14,13 @@ const client = got.extend({
 });
 
 let con = mysql.createPool({
- host: process.env["DB_HOST"],
- user:  process.env["DB_USER"],
- password:  process.env["DB_PASSWORD"],
- database:  process.env["DB_DATABASE"],
-});
+   host: process.env["DB_HOST"],
+   user: process.env["DB_USER"],
+   password: process.env["DB_PASSWORD"],
+   database: process.env["DB_DATABASE"],
+   port: process.env["DB_PORT"],
+   multipleStatements: true,
+  });
 
 (async () => {
  let [result, _r] = await con.query(`SELECT * FROM l01_countries 
@@ -35,7 +37,7 @@ let con = mysql.createPool({
      shortName: JSON.parse(result[i]["name"])["en"],
      displayName: JSON.parse(result[i]["name"])["en"],
      address: "",
-     aggregationType: "AVERAGE",
+     aggregationType: "SUM",
      attributeValues: [],
      closedDate: "",
      code: result[i]["uid"],
@@ -55,14 +57,16 @@ let con = mysql.createPool({
    });
 
    let dhis_id = resp["response"]["uid"];
-   await con.query(
-    `update l01_countries set metadata = JSON_SET(metadata, "$.dhis_id", ?) where id = ?`,
-    [dhis_id, result[i]["id"]]
+   console.log(result[i]["id"]);
+   let x= await con.query(
+    `update l01_countries set metadata = JSON_SET(metadata, "$.dhis_id", ${dhis_id}) where id = ?`,
+    [ result[i]["id"]]
    );
    console.log(`Created ${result[i]["name"]}`);
-  } catch (e) {
+} catch (e) {
    if (e instanceof got.HTTPError) {
-    if (e.response.statusCode == "409") {
+      if (e.response.statusCode == "409") {
+       console.log('query-result',e);
      console.log(`Error with ${result[i]["name"]}`);
     }
    } else {

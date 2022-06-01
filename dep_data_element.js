@@ -11,7 +11,7 @@ const client = got.extend({
  resolveBodyOnly: true,
 });
 
-const data = fs.readFileSync("../dhis-mapping(edit).csv").toString("utf8").trim();
+const data = fs.readFileSync("./old_files/dhis-mapping(edit).csv").toString("utf8").trim();
 let csv = papaparse.parse(data, { header: true })["data"];
 
 (async () => {
@@ -47,6 +47,6 @@ let csv = papaparse.parse(data, { header: true })["data"];
   }
  }
  let csv_new = papaparse.unparse(csv, { header: true });
- fs.writeFileSync("../dhis-mapping-dep-ids.csv", csv_new.trim());
+ fs.writeFileSync("./old_files/dhis-mapping-dep-ids.csv", csv_new.trim());
  require('./dep2_data_set.js');
 })();
