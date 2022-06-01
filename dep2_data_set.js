@@ -11,7 +11,7 @@ const client = got.extend({
  resolveBodyOnly: true,
 });
 
-const data = fs.readFileSync("../dhis-mapping-wih-ids.csv").toString("utf8").trim();
+const data = fs.readFileSync("./old_files/dhis-mapping-wih-ids.csv").toString("utf8").trim();
 let csv = papaparse.parse(data, { header: true })["data"];
 
 
